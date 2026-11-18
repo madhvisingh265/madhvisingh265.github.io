@@ -211,7 +211,7 @@
         <dt>Built</dt><dd>A health model that estimates each cell's state from voltage, temperature and resistance, an end-of-life forecast, anomaly flags and a live dashboard. Uses NASA's battery ageing data (4 cells, 636 cycles).</dd>
         <dt>Result</dt><dd class="result">Every cell that reached end of life was flagged 17–36 cycles in advance. Health estimates on unseen cells were within 2.8 points on average.</dd>
         <dt>So what</dt><dd>That warning window is when replacement can be planned instead of becoming downtime.</dd>
-        <dd class="links"><a href="https://github.com/madhvisingh265/bess-health-monitoring">Code and results</a></dd>
+        <dd class="links"><a href="https://github.com/madhvisingh265/bess-battery-health-dashboard">Code and results</a></dd>
       </dl>
     </article>
 
@@ -259,14 +259,28 @@
 
     <article class="proj">
       <div>
+        <p class="name">YouTube video chatbot</p>
+        <p class="q">Can you ask a two-hour lecture a question and jump straight to the answer?</p>
+        <p class="stack">LangChain, Ollama, FAISS, Streamlit</p>
+      </div>
+      <dl>
+        <dt>Built</dt><dd>Extended an open-source RAG app (credited in the repo): answers now cite clickable timestamps, each video is embedded once instead of on every question, plus chat history, summaries and 12 unit tests.</dd>
+        <dt>So what</dt><dd>Runs fully on your own machine with no API cost, and every answer can be checked against the exact moment in the video.</dd>
+        <dd class="links"><a href="https://github.com/madhvisingh265/youtube-chatbot">Code</a></dd>
+      </dl>
+    </article>
+
+    <article class="proj">
+      <div>
         <p class="name">ADHD detection from EEG</p>
         <p class="q">Can brain signals recorded during an attention task help screen children for ADHD?</p>
         <p class="stack">PyTorch, EEGNet + LSTM, signal processing</p>
       </div>
       <dl>
         <dt>Built</dt><dd>A deep-learning model (EEGNet for spatial and frequency patterns, LSTM for how they change over time) trained on 19-channel EEG from 121 children.</dd>
+        <dt>Result</dt><dd class="result">87.6% accuracy across 121 children, catching 55 of 61 ADHD cases (ROC-AUC 0.93). That's about 12 points better than my earlier feature-based Random Forest.</dd>
         <dt>How it's tested</dt><dd>Each child is tested only by a model that never saw their data, so the model can't score well just by recognising the child.</dd>
-        <dd class="links"><a href="https://github.com/madhvisingh265/eeg-adhd-detection">Code</a></dd>
+        <dd class="links"><a href="https://github.com/madhvisingh265/adhd-diagnosis">Code</a></dd>
       </dl>
     </article>
   </div>
