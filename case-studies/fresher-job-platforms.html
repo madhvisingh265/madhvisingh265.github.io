@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why freshers give up on job apps – Product case study – Madhvi Singh</title>
+<meta name="description" content="Product case study: what 1,240 Play Store reviews say about why freshers drop off job platforms, and a PRD for a 'Response Promise' feature on Internshala.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="case.css">
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main"><a class="mark" href="../index.html">Madhvi Singh</a><a href="../index.html#work">← All work</a></nav>
+
+  <header class="case">
+    <p class="kicker">Product case study · Teardown, research and PRD</p>
+    <h1>Why freshers give up on job apps</h1>
+    <p class="lede">Companies say they are hiring freshers, yet most freshers say they never hear back. I read what 1,240 app reviews actually complain about, then wrote a PRD for the one fix I would ship first.</p>
+    <p class="meta"><span>Self-initiated, November 2026</span><span>Platforms: Naukri, Internshala, Unstop</span><span>Not affiliated with any of them</span></p>
+    <div class="verdict">
+      <h2>The short answer</h2>
+      <p>Freshers aren't leaving because the apps are hard to use. They leave because applying feels <strong>pointless</strong> (no reply) or <strong>unsafe</strong> (fake jobs, requests for money). On Naukri and Internshala, those trust problems come up in low-star reviews far more often than bugs do.</p>
+      <p><strong>What I'd build first:</strong> a "Response Promise" on Internshala. Every application gets a decision within 14 days, and listings show how reliably each employer replies.</p>
+    </div>
+  </header>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">1. The problem</h2>
+    <p>The market has a strange gap. On the hiring side, the Unstop Talent Report 2026 (37,000+ students, 500 HR leaders) found 87.8% of companies actively recruiting. Yet 85% of engineering students in the same survey were still unplaced. Naukri's JobSpeak index shows fresher hiring growing year on year through 2026. So the jobs exist, and the problem is somewhere between "apply" and "hear back".</p>
+    <p>Trust is the other half. In Indeed's July 2026 survey of 1,161 Indian job seekers, 93% had come across suspicious job offers, and 51% weren't confident they could tell a genuine recruiter from a fake one. Gen Z and people with up to two years of experience were hit hardest: 52% said scams had made them miss genuine opportunities.</p>
+    <div class="callout"><strong>Problem statement.</strong> A fresher applies to many roles on a job platform, rarely gets any decision, and can't easily tell which listings are real. Each silent or suspicious application teaches them that the platform isn't worth opening.</div>
+    <h3>Who this is for</h3>
+    <div class="grid2">
+      <div class="card"><h4>Primary user: the off-campus fresher</h4><p>A 21–23-year-old graduate from a tier-2 or tier-3 college with no campus placement. Applies in bulk from a phone and has no recruiter network.</p></div>
+      <div class="card"><h4>Secondary user: the small employer</h4><p>A startup founder or HR person at an SME posting one or two roles. Gets hundreds of applications and has no time to reject people one by one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">2. What users actually complain about</h2>
+    <p>I pulled the "most relevant" Google Play reviews for each app on 24 November 2026: about 400 per app, 1,240 in total. I kept only the 1–2 star reviews (520) and tagged each one against eight complaint themes using a written keyword codebook. A review can match more than one theme.</p>
+
+    <div class="scroll"><table>
+      <caption>Share of 1–2 star reviews mentioning each theme</caption>
+      <thead><tr><th>Theme</th><th class="n">Naukri (n=180)</th><th class="n">Internshala (n=214)</th><th class="n">Unstop (n=126)</th></tr></thead>
+      <tbody>
+        <tr><td>Paid services, upsell or refunds</td><td class="n">43%</td><td class="n">19%</td><td class="n">5%</td></tr>
+        <tr><td>Scam, fake or fraud</td><td class="n">18%</td><td class="n">20%</td><td class="n">4%</td></tr>
+        <tr><td>No response or "not a single call"</td><td class="n">14%</td><td class="n">16%</td><td class="n">2%</td></tr>
+        <tr><td>Irrelevant matches</td><td class="n">11%</td><td class="n">1%</td><td class="n">0%</td></tr>
+        <tr><td>Bugs, crashes, login</td><td class="n">10%</td><td class="n">9%</td><td class="n">37%</td></tr>
+        <tr><td>Expired or stale listings</td><td class="n">6%</td><td class="n">0.5%</td><td class="n">3%</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Three things the reviews say</h3>
+    <ol>
+      <li><strong>On the two biggest platforms, the top complaints are about trust, not usability.</strong> Paying for services that produce no calls (Naukri), and fake or fee-charging listings (Internshala), each show up in about one in five low-star reviews or more. Bugs show up in about one in ten.</li>
+      <li><strong>Silence is the common thread.</strong> Reviewers describe updating their profile daily, paying for premium, or completing an AI interview, and then hearing nothing. Several Internshala reviewers describe completing the AI interview step and then never getting a decision.</li>
+      <li><strong>Unstop is a different case.</strong> Its complaints are mostly about bugs (37%), and it barely has a trust problem in this sample. Its users come mainly for competitions and assessments, so the "apply and wait" loop matters less there.</li>
+    </ol>
+
+    <div class="note"><strong>Limits of this data.</strong> Keyword matching misses sarcasm and non-English reviews. "Most relevant" is Google's ordering, not a random sample. Naukri's reviews are almost all from 2026, while Internshala's and Unstop's go back to 2018. Not every reviewer is a fresher. Treat the percentages as a direction, not a measurement. Codebook and counts: <a href="data/review_codebook.md">codebook</a> · <a href="data/review_theme_counts.csv">counts (CSV)</a> · <a href="https://github.com/madhvisingh265/fresher-job-platforms-case-study">GitHub repo</a> (including the script that tags the reviews).</div>
+
+    <h3>Survey of recent graduates (in progress)</h3>
+    <p>To check whether reviews match what a typical fresher feels, I'm surveying 30–50 recent engineering graduates. Results will be added here. Questions are in the <a href="#appendix">appendix</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">3. Where the journey breaks</h2>
+    <p>Mapping the fresher's journey shows the drop-off happens <em>after</em> they apply, which is exactly the part the platform controls least.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Step</th><th>What the fresher does</th><th>What goes wrong</th></tr></thead>
+      <tbody>
+        <tr><td>1. Discover</td><td>Searches "fresher", filters by location</td><td>Some irrelevant or stale listings (minor in reviews)</td></tr>
+        <tr><td>2. Judge</td><td>Decides whether a listing is real</td><td>No reliable signal. Fake or fee-charging listings look like real ones</td></tr>
+        <tr><td>3. Apply</td><td>One tap, sometimes an AI interview</td><td>Works fine. Effort is low, so people apply in bulk</td></tr>
+        <tr><td>4. Wait</td><td>Checks the app for updates</td><td><strong>No decision ever arrives.</strong> The status stays "Applied" forever</td></tr>
+        <tr><td>5. Give up or pay</td><td>Stops opening the app, or buys premium</td><td>Premium doesn't fix step 4, so trust drops further</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small muted">Internshala already shows an application dashboard. The gap isn't the tracker. It's that nothing requires the employer to move an application out of "Applied".</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">4. Options and what to do first</h2>
+    <p>I scored four options with RICE (Reach × Impact × Confidence ÷ Effort). These scores are my own estimates for comparing options, not measured values.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Option</th><th class="n">Reach (% of fresher applicants per quarter)</th><th class="n">Impact (1–3)</th><th class="n">Confidence</th><th class="n">Effort (person-months)</th><th class="n">RICE</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A. 14-day decision promise</strong>: employer must shortlist or decline. Unanswered applications auto-close with a clear message</td><td class="n">100</td><td class="n">3</td><td class="n">70%</td><td class="n">3</td><td class="n"><strong>70</strong></td></tr>
+        <tr><td><strong>B. Employer reply-rate badge</strong> on each listing, and a ranking boost for employers who reply</td><td class="n">100</td><td class="n">2</td><td class="n">60%</td><td class="n">2</td><td class="n"><strong>60</strong></td></tr>
+        <tr><td>C. Verified employer tick and an in-chat warning when someone asks for money</td><td class="n">60</td><td class="n">2</td><td class="n">50%</td><td class="n">2</td><td class="n">30</td></tr>
+        <tr><td>D. Make the AI-interview step more reliable</td><td class="n">30</td><td class="n">1</td><td class="n">80%</td><td class="n">3</td><td class="n">8</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Decision:</strong> ship A and B together as one feature, "Response Promise". A fixes the silence for the fresher. B gives employers a reason to keep the promise, because responsive employers get more visibility. C is next on the roadmap, since a reply-rate signal also makes fake listings stand out.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">5. PRD: Response Promise</h2>
+    <h3>Goal</h3>
+    <p>Every fresher who applies gets a clear outcome within 14 days, and can see before applying which employers actually reply.</p>
+    <h3>User stories</h3>
+    <ul>
+      <li>As a fresher, I want to know within two weeks whether I'm moving forward, so I can stop waiting and focus elsewhere.</li>
+      <li>As a fresher, I want to see how often an employer replies before I apply, so I spend my applications where they'll be read.</li>
+      <li>As an employer, I want to decline many applicants in one action, so keeping the promise doesn't cost me hours.</li>
+    </ul>
+    <h3>Requirements (MVP)</h3>
+    <ol>
+      <li><strong>Decision clock.</strong> Each application shows "Decision expected by [date]" (14 days from applying).</li>
+      <li><strong>Employer nudges.</strong> Employers get reminders on day 7 and day 12, plus a one-tap "Decline all unreviewed" action with a polite template.</li>
+      <li><strong>Auto-close.</strong> On day 14, any undecided application closes as "No decision from employer". The fresher gets a short, honest message and three similar roles from employers that reply.</li>
+      <li><strong>Reply-rate badge.</strong> Listings show "Replies to X% of applicants within 14 days" once an employer has 20 or more applications. New employers show "New employer, no reply history yet".</li>
+      <li><strong>Ranking.</strong> In fresher searches, employers with high reply rates rank higher, and those under 30% rank lower.</li>
+    </ol>
+    <h3>Out of scope for the MVP</h3>
+    <p>Paid-plan changes, salary transparency, and changes to the AI-interview flow.</p>
+    <h3>How we'll know it works</h3>
+    <div class="scroll"><table>
+      <thead><tr><th>Metric</th><th>Type</th><th>Target after 90 days</th></tr></thead>
+      <tbody>
+        <tr><td>% of fresher applications with a real decision (shortlist or decline) within 14 days</td><td>North star</td><td>Double the pre-launch baseline</td></tr>
+        <tr><td>30-day return rate of freshers who applied at least once</td><td>Outcome</td><td>+10% relative</td></tr>
+        <tr><td>Share of applications going to employers with a reply rate of 60% or more</td><td>Behaviour</td><td>Rising month on month</td></tr>
+        <tr><td>New job posts per employer</td><td>Guardrail</td><td>No more than a 5% drop</td></tr>
+        <tr><td>Scam reports per 1,000 applications</td><td>Guardrail</td><td>Flat or falling</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small muted">Targets are starting hypotheses to test, not forecasts. They would be set properly once baseline data is available.</p>
+    <h3>Rollout</h3>
+    <p>A/B test across cities for six weeks: half of fresher listings get the badge and the clock, half don't. Launch to everyone if the north-star metric improves and the guardrail on employer posting holds.</p>
+    <h3>Risks</h3>
+    <ul>
+      <li><strong>Employers post less</strong> because the promise feels like extra work. Mitigation: one-tap bulk decline, and the promise is on by default but only shown as a badge in phase one.</li>
+      <li><strong>Gaming the badge</strong> with instant blanket rejections. Mitigation: count only decisions made after the application has been opened.</li>
+      <li><strong>Lots of "No decision" messages</strong> feel discouraging. Mitigation: always pair them with roles from employers that do reply.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">6. What I learned</h2>
+    <ul>
+      <li>I expected "too many irrelevant jobs" to be the main complaint. It barely registered on Internshala. The real pain is what happens after applying.</li>
+      <li>The same category (job platforms) can have very different problems. Unstop's are mostly bugs, Naukri's are about paid plans. One fix wouldn't suit all three.</li>
+      <li>A badge only works if the employer side has a reason to care. That's why A and B ship together.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="appendix">
+  <div class="wrap">
+    <h2 class="sec">Appendix: survey questions</h2>
+    <p class="muted">For 30–50 graduates from the 2025–2026 batches, mostly engineering. Takes about 3 minutes.</p>
+    <ol>
+      <li>Which job platforms have you used in the last 6 months? (Naukri, LinkedIn, Internshala, Unstop, Indeed, Apna, other)</li>
+      <li>Roughly how many jobs or internships have you applied to on these platforms?</li>
+      <li>Of those, how many gave you any reply (shortlist, rejection or interview)? (None, 1–5%, 6–20%, more than 20%)</li>
+      <li>Have you seen a listing you believed was fake or that asked you for money? (Yes, often / Yes, once or twice / No)</li>
+      <li>Have you paid for any premium plan or course on a job platform? If yes, did it lead to more calls?</li>
+      <li>What made you stop using a platform, if you did? (Open text)</li>
+      <li>Rank these from most to least frustrating: no reply, fake jobs, irrelevant jobs, app bugs, roles asking for experience.</li>
+      <li>If a listing showed "This employer replies to 80% of applicants within 14 days", would that change where you apply? (1–5)</li>
+      <li>Would you rather get a quick "No" or no answer at all? (Quick no / No answer / Doesn't matter)</li>
+      <li>Where did your current job or internship actually come from? (Campus, job platform, referral, LinkedIn message, other)</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">Sources</h2>
+    <ul class="small">
+      <li>Google Play listings and reviews for Naukri, Internshala and Unstop, read on 24 November 2026 (ratings shown: 4.6, 4.3 and 4.0)</li>
+      <li>Unstop Talent Report 2026, as reported by <a href="https://www.outlookbusiness.com/corporate/jobs-are-there-but-most-students-arent-getting-them-heres-why">Outlook Business</a></li>
+      <li>Indeed job-scam survey, July 2026, as reported by <a href="https://www.businesstoday.in/jobs/story/more-than-9-in-10-job-seekers-encounter-fake-job-offers-542006-2026-07-09">Business Today</a> and <a href="https://the420.in/?p=108913">The420</a></li>
+      <li>Naukri JobSpeak fresher hiring trend, as summarised by <a href="https://blog.fastapply.co/fresher-jobs-2026-where-to-find-and-apply">FastApply</a></li>
+      <li>Internshala app features: <a href="https://internshala.com/blog/?p=27388">Internshala blog</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer><div class="wrap"><p><a href="../index.html#work">← Back to all work</a> · <a href="mailto:madhvisingh265@gmail.com">madhvisingh265@gmail.com</a></p></div></footer>
+</body>
+</html>
